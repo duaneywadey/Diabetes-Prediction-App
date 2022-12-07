@@ -1,0 +1,35 @@
+{% extends 'partials/base.html' %}
+{% block title %} Predictions {% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row mt-4 justify-content-center">
+		<div class="col-md-12">
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">BMI</th>
+			      <th scope="col">DPF</th>
+			      <th scope="col">Age</th>
+			      <th scope="col">Date</th>
+			      <th scope="col">Diabetes Probability</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+				{% for data in predicted_values %}
+			    <tr>
+			      <td scope="row">{{data.bmi}}</td>
+			      <td scope="row">{{data.dpf}}</td>
+			      <td scope="row">{{data.age}}</td>
+			      <td scope="row">{{data.date}}</td>
+			      <td scope="row">
+			      	<h6 class="text-danger">{{data.predictions}}%</h6>
+			      </td>
+			    </tr>
+			    {% endfor %}
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}
